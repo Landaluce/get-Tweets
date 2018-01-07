@@ -25,9 +25,14 @@ def search_tweets(search_query, number_tweets=15, geocode=None, lang=None):
                     new_tweets = api.search(q=search_query,
                                             count=TWEETS_PER_QUERY,
                                             geocode=geocode,
-                                            lang=lang)
+                                            lang=lang,
+                                            tweet_mode="extended")
                 else:
-                    new_tweets = api.search(q=search_query, count=TWEETS_PER_QUERY, geocode=geocode, lang=lang,
+                    new_tweets = api.search(q=search_query,
+                                            count=TWEETS_PER_QUERY,
+                                            geocode=geocode,
+                                            lang=lang,
+                                            tweet_mode="extended",
                                             since_id=SINCE_ID)
             else:
                 if not SINCE_ID:
@@ -35,12 +40,14 @@ def search_tweets(search_query, number_tweets=15, geocode=None, lang=None):
                                             count=TWEETS_PER_QUERY,
                                             geocode=geocode,
                                             lang=lang,
+                                            tweet_mode="extended",
                                             max_id=str(max_id - 1))
                 else:
                     new_tweets = api.search(q=search_query,
                                             count=TWEETS_PER_QUERY,
                                             geocode=geocode,
                                             lang=lang,
+                                            tweet_mode="extended",
                                             max_id=str(max_id - 1),
                                             since_id=SINCE_ID)
             if not new_tweets or len(new_tweets) == 0:
@@ -77,22 +84,26 @@ def get_timeline_tweets(screen_name, number_tweets=15, include_rts=True):
                 if not SINCE_ID:
                     new_tweets = api.user_timeline(screen_name=screen_name,
                                                    count=TWEETS_PER_QUERY,
-                                                   include_rts=include_rts)
+                                                   include_rts=include_rts,
+                                                   tweet_mode="extended")
                 else:
                     new_tweets = api.user_timeline(screen_name=screen_name,
                                                    count=TWEETS_PER_QUERY,
                                                    include_rts=include_rts,
+                                                   tweet_mode="extended",
                                                    since_id=SINCE_ID)
             else:
                 if not SINCE_ID:
                     new_tweets = api.user_timeline(screen_name=screen_name,
                                                    count=TWEETS_PER_QUERY,
                                                    include_rts=include_rts,
+                                                   tweet_mode="extended",
                                                    max_id=str(max_id - 1))
                 else:
                     new_tweets = api.user_timeline(screen_name=screen_name,
                                                    count=TWEETS_PER_QUERY,
                                                    include_rts=include_rts,
+                                                   tweet_mode="extended",
                                                    max_id=str(max_id - 1),
                                                    since_id=SINCE_ID)
             if not new_tweets or len(new_tweets) == 0:
@@ -121,7 +132,7 @@ def save_tweets(folder_name, tweets):
         os.makedirs(path)
         for tweet in tweets:
             file = open(os.path.join(path, str(tweet.id) + ".txt"), "w", encoding="UTF-8")
-            file.write(tweet.text)
+            file.write(tweet.full_text)
             file.close()
 
 
