@@ -103,9 +103,11 @@ def get_timeline_tweets(screen_name, number_tweets=15, include_rts=True):
                     tweets.append(tweet)
                 max_id = new_tweets[-1].id
         except tweepy.TweepError as error:
-            print(error)
-            tojson = json.loads(error.reason.replace("[", "").replace("]", "").replace("'", "\""))
-            print(tojson["message"])
+            try:
+                tojson = json.loads(error.reason.replace("[", "").replace("]", "").replace("'", "\""))
+                print(tojson["message"])
+            except:
+                print("Username not found")
             break
     save_tweets(screen_name + '_timeline', tweets[:number_tweets])
     return tweets[:number_tweets]
@@ -126,21 +128,23 @@ def save_tweets(folder_name, tweets):
 def menu():
     answer = True
     while answer:
-        print("1. Pull tweets from timeline")
-        print("2. Search tweets")
-        answer = input("What would you like to do? ")
+        print("\t1. Pull tweets from timeline")
+        print("\t2. Search tweets")
+        answer = input("\tWhat would you like to do? ")
         if answer == "1":
             screen_name = input("Username: ")
             number_tweets = int(input("Number of tweets: "))
             tweets = get_timeline_tweets(screen_name=screen_name,
                                          number_tweets=number_tweets)
-            print(len(tweets), "tweets saved in", screen_name + "_timeline")
+            if len(tweets) > 0:
+                print(len(tweets), "tweets saved in", screen_name + "_timeline")
         elif answer == "2":
             search_query = input("Search query: ")
             number_tweets = int(input("Number of tweets: "))
             tweets = search_tweets(search_query=search_query,
                                    number_tweets=number_tweets)
-            print(len(tweets), "tweets saved in", search_query + "_search")
+            if len(tweets) > 0:
+                print(len(tweets), "tweets saved in", search_query + "_search")
         elif answer != "":
             print("Invalid choice, try again")
 
