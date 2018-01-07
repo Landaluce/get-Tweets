@@ -120,7 +120,7 @@ def save_tweets(folder_name, tweets):
             shutil.rmtree(path)
         os.makedirs(path)
         for tweet in tweets:
-            file = open(os.path.join(path, str(tweet.id) + ".txt"), "w")
+            file = open(os.path.join(path, str(tweet.id) + ".txt"), "w", encoding="UTF-8")
             file.write(tweet.text)
             file.close()
 
