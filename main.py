@@ -137,10 +137,11 @@ def save_tweets(folder_name, tweets):
 
 
 def menu():
-    answer = True
-    while answer:
+    answer = ""
+    while answer != "3":
         print("\t1. Pull tweets from timeline")
         print("\t2. Search tweets")
+        print("\t3. Exit")
         answer = input("\tWhat would you like to do? ")
         if answer == "1":
             screen_name = input("Username: ")
@@ -156,7 +157,7 @@ def menu():
                                    number_tweets=number_tweets)
             if len(tweets) > 0:
                 print(len(tweets), "tweets saved in", search_query + "_search")
-        elif answer != "":
+        elif answer != "3":
             print("Invalid choice, try again")
 
 menu()
