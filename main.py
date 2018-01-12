@@ -61,14 +61,24 @@ def search_tweets(search_query, number_tweets=15, geocode=None, lang=None):
             to_json = json.loads(error.reason.replace("[", "").replace("]", "").replace("'", "\""))
             print(to_json["message"])
             break
-    save_tweets(search_query + '_search', tweets[:number_tweets])
+    "%s_search lat:%f long:%f r:%d%s"
+    options = (search_query,)
+    folder_name_format = '%s_search'
+    if lang:
+        options += (lang,)
+        folder_name_format += ' lang:%s'
+    if geocode:
+        options += (geocode,)
+        folder_name_format += ' geocode:%s'
+    print(folder_name_format % options)
+    save_tweets(folder_name_format % options, tweets[:number_tweets])
     return tweets[:number_tweets]
 
 
 def get_timeline_tweets(screen_name, number_tweets=15, include_rts=True):
     """Gets a list of tweets.
 
-    https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets
+    https://developer.twitter.com/en/docs/tweets/timelines/overview
     :param screen_name: The screen name of the user for whom to return results (String)
     :param number_tweets: number of tweets to get (Integer)
     :param include_rts: When set to false , the timeline will strip any native retweets
@@ -161,3 +171,27 @@ def menu():
             print("Invalid choice, try again")
 
 menu()
+
+# Geocode filter
+"""
+search_query = "Wheaton"
+number_tweets = 10
+# Wheaton's lat & long Check: https://www.mapdevelopers.com/geocode_tool.php
+latitude = 41.96801
+longitude = -71.185194
+radius = 1
+units = "mi"  # mi or km
+tweets = search_tweets(search_query=search_query,
+                       number_tweets=number_tweets,
+                       geocode="%f,%f,%d%s" % (latitude, longitude, radius, units))
+"""
+
+# Language filter
+"""
+search_query = "Wheaton"
+number_tweets = 10
+language = "es"  # given in ISO 639-1 code, check: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+tweets = search_tweets(search_query=search_query,
+                       number_tweets=number_tweets,
+                       lang=language)
+"""
