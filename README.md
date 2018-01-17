@@ -1,6 +1,9 @@
 # get-Tweets
 
 # Summary
+get-Tweets generates a corpus of tweets from a search query, or from a user's time-line. It generates a new folder for each request, and saves each tweet's contewnt in a text file.
+
+The script is set up to get the most recent tweets.
 
 # Dependencies
 Required Python 3 packagews: pip and Tweepy
