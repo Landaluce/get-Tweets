@@ -16,7 +16,7 @@ If you do not already have Python v3.6 installed on your computer, we recommend 
 
 1.3 Follow the instructions corresponding to your oprating system:
   
-  **If you are using Linux**: After locating the install script (e.g., in Downloads/ by typing ```cd Downloads``` in a terminal), run the (bash) shell installer by typing the following into your terminal:'''bash Anaconda3-5.0.1-Linux-x86_64.sh'''
+  **Linux instructons**: After locating the install script (e.g., in Downloads/ by typing ```cd Downloads``` in a terminal), run the (bash) shell installer by typing the following into your terminal:'''bash Anaconda3-5.0.1-Linux-x86_64.sh'''
   
 **Note:** A newer version of Anaconda may have a new version number; check your exact filename.
 
@@ -29,14 +29,14 @@ Type: ```python -V``` (capital v) and hit the ```Enter``` key.
 You should see a response that looks like: ```Python 3.6.0 :: Anaconda 5.0.1 (64-bit)```. If you do not see ```:: Anaconda 5.0.1``` then you did not open a new terminal window or you did not update your PATH variable during the Anaconda installation. We recommend that you uninstall Anaconda and try to install it again, following the instructions above. To uninstall Anaconda, type ```rm -rf ~/anaconda3```, replacing anaconda3 with the name of the Anaconda directory, if it is different. Hit the ```Enter``` key.
 
 
-  **If you are using macOS**: Double-click the installer application icon (it will be called something like Anaconda3-5.0.1-MacOSX-x86_64.pkg) and follow the instructions on the screen.
+  **MacOS instructons**: Double-click the installer application icon (it will be called something like Anaconda3-5.0.1-MacOSX-x86_64.pkg) and follow the instructions on the screen.
   
 You should now verify that we have installed it correctly. To do this, Open a terminal window. If you are unfamiliar with how to access a terminal window, search for “terminal” in Spotlight. You should see a window appear with a command-line prompt. Type ```python -V``` (capital v) and hit the ```Enter``` key.
 
 
 You should see a response that looks like: ```Python 3.6.0 :: Anaconda 5.0.1 (64-bit)```. If you do not see ```:: Anaconda 5.0.1``` then your PATH variable was not updated during the Anaconda installation. We recommend that you uninstall Anaconda and try to install it again, following the instructions above. To uninstall Anaconda, type ```rm -rf ~/anaconda3```, replacing anaconda3 with the name of the Anaconda directory, if it is different. Hit the ```Enter``` key.
   
-   **If you are using Windows**:Double-click the installer application icon (it will be called something like Anaconda3-5.0.1-Windows-x86_64.exe) and follow the instructions on the screen.
+   **Windows instructons**:Double-click the installer application icon (it will be called something like Anaconda3-5.0.1-Windows-x86_64.exe) and follow the instructions on the screen.
 
 **Note:** The installation location is not important; however, make sure that you check the option to Add Anaconda to my PATH environment variable (make sure both boxes are checked). This will ensure that Windows knows that you want to use the Anaconda distribution of Python when you launch Lexos. This is especially important if you already have a different version of Python installed.
 
