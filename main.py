@@ -3,7 +3,6 @@ from api import api
 from constants import *
 import json
 import os
-import shutil
 
 
 def search_tweets(search_query, number_tweets=15, geocode=None, lang=None):
@@ -136,14 +135,16 @@ def get_timeline_tweets(screen_name, number_tweets=15, include_rts=True):
 
 def save_tweets(folder_name, tweets):
     if len(tweets) > 0:
-        path = os.path.join(TWEETS_DIRECTORY, folder_name)
-        if os.path.isdir(path):
-            shutil.rmtree(path)
-        os.makedirs(path)
+        folder_path = os.path.join(TWEETS_DIRECTORY, folder_name)
+        if not os.path.isdir(folder_path):
+            os.makedirs(folder_path)
         for tweet in tweets:
-            file = open(os.path.join(path, str(tweet.id) + ".txt"), "w", encoding="UTF-8")
-            file.write(tweet.full_text)
-            file.close()
+            file_name = str(tweet.created_at) + ' ' + str(tweet.id) + ".txt"
+            file_path = os.path.join(folder_path, file_name)
+            if not os.path.isfile(file_path):
+                file = open(file_path, "w", encoding="UTF-8")
+                file.write(tweet.full_text)
+                file.close()
 
 
 def menu():
@@ -169,6 +170,7 @@ def menu():
                 print(len(tweets), "tweets saved in", search_query + "_search")
         elif answer != "3":
             print("Invalid choice, try again")
+
 
 menu()
 
