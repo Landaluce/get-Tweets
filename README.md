@@ -6,7 +6,7 @@ get-Tweets generates a corpus of tweets from a search query, or from a user's ti
 The script is set up to get the most recent tweets.
 
 # Dependencies
-Required Python 3 packagews: pip and Tweepy
+Required Python 3 packages: pip and Tweepy
 
 
 # Installation
