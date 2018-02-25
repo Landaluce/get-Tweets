@@ -64,6 +64,7 @@ You should see a response that looks like: ```Python 3.6.0 :: Anaconda 5.0.1 (64
 ### 4. Setting up Twitter's API credentials:
 Follow the [twitter startup directions](twitter_startup_directions.pdf)
 
+
 ### 5. Starting and Launching get-Tweets
 #### Important: Close your current terminal window and open a new one.
 
