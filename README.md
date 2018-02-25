@@ -67,7 +67,7 @@ Follow the [twitter startup directions](twitter_startup_directions.pdf)
 ### 5. Starting and Launching get-Tweets
 #### Important: Close your current terminal window and open a new one.
 
-5.1 avigate to the get-Tweets folder by typing ```cd Desktop/get-Tweets``` and hit the ```Enter``` key.
+5.1 Navigate to the get-Tweets folder by typing ```cd Desktop/get-Tweets``` and hit the ```Enter``` key.
     
 5.2 Type ```python get-Tweets.py``` and hit the ```Enter``` key. 
 
