@@ -140,6 +140,8 @@ def save_tweets(folder_name, tweets):
             os.makedirs(folder_path)
         for tweet in tweets:
             file_name = str(tweet.created_at) + ' ' + str(tweet.id) + ".txt"
+            # : from the timestamp will cause problems in filenames on Windows.
+            file_name = file_name.replace(':', '-')
             file_path = os.path.join(folder_path, file_name)
             if not os.path.isfile(file_path):
                 file = open(file_path, "w", encoding="UTF-8")
