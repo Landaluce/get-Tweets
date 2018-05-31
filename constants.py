@@ -1,4 +1,5 @@
 TWEETS_DIRECTORY = "Tweets"  # Directory where all tweets will be saved
+USERINFO_DIRECTORY = "Users"  # Directory where all followers will be saved
 TWEETS_PER_QUERY = 500  # 500 is the max the API permits
 LIMIT_EXCEEDED_ERROR_CODE = 88
 
