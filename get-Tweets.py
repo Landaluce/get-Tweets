@@ -5,6 +5,11 @@ import json
 import os
 from io import open
 
+try:
+   input = raw_input
+except NameError:
+   pass
+
 def get_followers_of(screen_name):
     """ Gets a list of users who follow this user.
 
@@ -17,7 +22,7 @@ def get_followers_of(screen_name):
     try:
         results =  api.followers(screen_name=screen_name)
     except tweepy.TweepError as error:
-        print error
+        print(error)
         return []
     file_name = screen_name + '_is_followed_by.txt'
     save_user_list(file_name, results)
@@ -43,7 +48,7 @@ def get_who_this_user_is_following(screen_name, number_users=10):
                 u = api.get_user(id=id)
                 results.append(u)
     except tweepy.TweepError as error:
-        print error
+        print(error)
         return []
     file_name = screen_name + '_is_following.txt'
     save_user_list(file_name, results)
@@ -215,29 +220,29 @@ def menu():
         print("\t3. Get followers of a specific user")
         print("\t4. Get a list of users this user is a following [slow]")
         print("\t5. Exit")
-        answer = raw_input("\tWhat would you like to do? ")
+        answer = input("\tWhat would you like to do? ")
         if answer == "1":
-            screen_name = raw_input("Username: ")
-            number_tweets = int(raw_input("Number of tweets: "))
+            screen_name = input("Username: ")
+            number_tweets = int(input("Number of tweets: "))
             tweets = get_timeline_tweets(screen_name=screen_name,
                                          number_tweets=number_tweets)
             if len(tweets) > 0:
                 print(len(tweets), "tweets saved in", screen_name + "_timeline")
         elif answer == "2":
-            search_query = raw_input("Search query: ")
-            number_tweets = int(raw_input("Number of tweets: "))
+            search_query = input("Search query: ")
+            number_tweets = int(input("Number of tweets: "))
             tweets = search_tweets(search_query=search_query,
                                    number_tweets=number_tweets)
             if len(tweets) > 0:
                 print(len(tweets), "tweets saved in", search_query + "_search")
         elif answer == "3":
-            screen_name = raw_input("Username: ")
+            screen_name = input("Username: ")
             followers = get_followers_of(screen_name=screen_name)
             if (len(followers)>0):
                 print("%d followers of this user saved in file." % len(followers))
         elif answer == "4":
-            screen_name = raw_input("Username: ")
-            num_to_resolve = int(raw_input("Number of users to resolve: "))
+            screen_name = input("Username: ")
+            num_to_resolve = int(input("Number of users to resolve: "))
             followers = get_who_this_user_is_following(screen_name=screen_name,
                 number_users=num_to_resolve)
             if (len(followers)>0):
