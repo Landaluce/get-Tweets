@@ -41,7 +41,7 @@ You should see a response that looks like: ```Python 3.6.0 :: Anaconda 5.0.1 (64
   
    **Windows instructons**: Double-click the installer application icon (it will be called something like Anaconda3-5.0.1-Windows-x86_64.exe) and follow the instructions on the screen.
 
-**Note:** The installation location is not important; however, make sure that you check the option to Add Anaconda to my PATH environment variable (make sure both boxes are checked). This will ensure that Windows knows that you want to use the Anaconda distribution of Python when you launch Lexos. This is especially important if you already have a different version of Python installed.
+**Note:** The installation location is not important; however, make sure that you check the option to Add Anaconda to my PATH environment variable (make sure both boxes are checked). This will ensure that Windows knows that you want to use the Anaconda distribution of Python when you launch get-Tweets. This is especially important if you already have a different version of Python installed.
 
 When the process is complete, select Finish to finish the installation of Anaconda.
 
